@@ -5,3 +5,12 @@ services:
 script:
   - docker build -t node .
   - docker images node
+
+before_deploy:
+  - docker login -u i321174 -p Kaash123
+
+deploy:
+  provider: script
+  script: docker push node
+  on:
+    branch: master
