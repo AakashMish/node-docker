@@ -3,14 +3,14 @@ services:
   - docker
 
 script:
-  - docker build -t node .
-  - docker images node
+  - docker build -t i321174/node .
+  - docker images i321174/node
 
 before_deploy:
   - docker login -u i321174 -p Kaash123
 
 deploy:
   provider: script
-  script: docker push node
+  script: docker push i321174/node
   on:
     branch: master
